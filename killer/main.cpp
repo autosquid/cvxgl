@@ -3,6 +3,7 @@
 #include <boost/range/algorithm/copy.hpp>
 #include <boost/range.hpp>
 #include <iterator>
+#include "cvxgl.hpp"
 
 
 int main(int argc, char ** argv)

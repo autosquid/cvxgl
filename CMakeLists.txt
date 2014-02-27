@@ -23,6 +23,7 @@ add_subdirectory (external)
 
 # On Visual 2005 and above, this module can set the debug working directory
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/external/rpavlik-cmake-modules-1c73e35")
+
 include(CreateLaunchers)
 include(MSVCMultipleProcessCompile) # /MP
 
@@ -78,10 +79,10 @@ create_target_launcher(killer WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/kil
 #
 
 if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
-    # add_custom_command(
-    #    TARGET killer POST_BUILD
-    #    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/killer${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/killer/"
-    # )
+    add_custom_command(
+       TARGET killer POST_BUILD
+       COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/killer${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/killer/"
+    )
 elseif (${CMAKE_GENERATOR} MATCHES "Xcode" )
 
 endif (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )

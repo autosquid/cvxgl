@@ -18,8 +18,6 @@ endif()
 
 set(CMAKE_CXX_FLAGS "--std=c++11")
 
-# Compile external dependencies 
-add_subdirectory (external)
 
 # On Visual 2005 and above, this module can set the debug working directory
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/external/rpavlik-cmake-modules-1c73e35")
@@ -33,11 +31,7 @@ endif(INCLUDE_DISTRIB)
 
 
 include_directories(
-	external/AntTweakBar-1.16/include/
-	external/glfw-2.7.6/include/
 	external/glm-0.9.4.0/
-	external/glew-1.9.0/include/
-	external/assimp-3.0.1270/include/
 	.
     ${Boost_INCLUDE_DIRS}
 )
@@ -46,16 +40,12 @@ include_directories(
 set(ALL_LIBS
 	${OPENGL_LIBRARY}
     ${Boost_LIBRARIES}
-    ${Boost_FILESYSTEM_LIBRARY}
-	GLFW_276
-	GLEW_190
 )
 
 add_definitions(
 	-DTW_STATIC
 	-DTW_NO_LIB_PRAGMA
 	-DTW_NO_DIRECT3D
-	-DGLEW_STATIC
 	-D_CRT_SECURE_NO_WARNINGS
 )
 

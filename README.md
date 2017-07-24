@@ -1,7 +1,8 @@
 cvxgl
 =====
 
-cv/gl pain killer: pin-hole camera intrinsic conversion from opencv/opengl to opengl/opencv
+cv/gl pain killer: 
+  pin-hole camera intrinsic conversion from opencv/opengl to opengl/opencv
 
 ## What it does?
 
